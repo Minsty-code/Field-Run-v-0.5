@@ -50,7 +50,10 @@
 
 //Fonction appelée à chaque mise à jour GPS
     function onPositionUpdate(position) {
-
+        if (assuracy > 5) {
+                alert("Le GPS n'est pas assez précis pour jouer");
+                return;
+        }
 //Récupère les coordonnées
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
