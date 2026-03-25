@@ -8,7 +8,9 @@
         initMarker();
         initTrackingLine();
 
-        map.on('moveend',() =>{
+        map.on('moveend', () => {
+            if (!lastPosition) return;
+            
             if (distance(lastPosition, [map.getCenter().lat, map.getCenter().lng]) < 3){
                 isCentred = true;
                 hideCenterButton();
