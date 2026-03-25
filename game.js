@@ -59,7 +59,7 @@ let coords = [];
 
         const currentPoint = [lat, lon];
             
-        if (accuracy > 20) {
+        if (accuracy > 50) {
                 alert("Le GPS n'est pas assez précis pour jouer");
                 return;
         }
