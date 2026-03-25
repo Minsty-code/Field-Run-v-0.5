@@ -50,7 +50,7 @@ let coords = [];
 
 //Fonction appelée à chaque mise à jour GPS
     function onPositionUpdate(position) {
-        if (accuracy < 20) {
+        if (accuracy > 20) {
                 alert("Le GPS n'est pas assez précis pour jouer");
                 return;
         }
