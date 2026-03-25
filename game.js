@@ -3,7 +3,7 @@
 //====================
 
 //Tableau d'historique de position
-        let coords = [];
+let coords = [];
 //En train de jouer ?
         let isRunning = false;
 //Watch Position
@@ -50,7 +50,7 @@
 
 //Fonction appelée à chaque mise à jour GPS
     function onPositionUpdate(position) {
-        if (assuracy > 5) {
+        if (accuracy > 20) {
                 alert("Le GPS n'est pas assez précis pour jouer");
                 return;
         }
