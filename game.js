@@ -50,10 +50,7 @@ let coords = [];
 
 //Fonction appelée à chaque mise à jour GPS
     function onPositionUpdate(position) {
-        if (accuracy > 20) {
-                alert("Le GPS n'est pas assez précis pour jouer");
-                return;
-        }
+        
 //Récupère les coordonnées
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
@@ -61,12 +58,18 @@ let coords = [];
         const accuracy = position.coords.accuracy;
 
         const currentPoint = [lat, lon];
-
+            
+        if (accuracy > 20) {
+                alert("Le GPS n'est pas assez précis pour jouer");
+                return;
+        }
+            
         updateAccuracyCircle(lat, lon, accuracy);
 
         lastPosition = currentPoint;
 
-        updateMarker(lat, lon);
+        updateMarker(lat,
+                     lon);
         
         if (isCentred) {
             map.panTo([lat, lon], 18);
@@ -225,7 +228,7 @@ let coords = [];
 
 //Arrêter le suivi
     function stopTracking() {
-        clearLine;
+        clearLine();
         isRunning = false;
         updateButtonsUI(false);
         coords = [];
